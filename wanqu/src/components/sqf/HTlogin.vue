@@ -1,7 +1,7 @@
 <template >
 <div class="box">
   <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-container">
-    <h3 class="title">系统登录</h3>
+    <h3 class="title">玩去后台系统登录</h3>
     <el-form-item prop="account">
       <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
     </el-form-item>
@@ -50,7 +50,17 @@ export default {
 
 
 <style>
-.bax{
+*{
+  margin: 0;
+  padding: 0;
+}
+.box{
+  width: 100%;
+  height: 800px;
+  margin-top:50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
     background-image: url("http://127.0.0.1:3000/images/reg.jpg")
 }
   .login-container {
@@ -59,7 +69,7 @@ export default {
     border-radius: 5px;
     -moz-border-radius: 5px;
     background-clip: padding-box;
-    margin: 180px auto;
+    /* margin: 180px auto; */
     width: 350px;
     padding: 35px 35px 15px 35px;
     background: #fff;

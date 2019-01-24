@@ -34,7 +34,7 @@
 
 
           <div class="clearfix">
-            <p>已有用户，去登陆 </p>
+            <p class="p">已有用户，去登陆 </p>
             <i class="fa fa-qq blue" aria-hidden="true"></i>
             <span class="pass">QQ</span>
             <span class="pass">|</span>
@@ -126,7 +126,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scope>
 .container {
   width: 100%;
   height: 745px;
@@ -137,13 +137,17 @@ export default {
   margin: 0 auto;
 }
 .el-main {
-  background-image: url("../../assets/rbj.jpg");
+  background-image: url("http://127.0.0.1:3000/images/rbj.jpg");
   color: #333;
   text-align: center;
   height: 650px;
 }
 /*登陆卡片*/
-
+.el-card__header{
+  /* background: #7CCB46; */
+  font-size: 20px;
+  font-weight: bold;
+}
 .wrapper {
   position: relative;
 }
@@ -151,7 +155,7 @@ i.fa-user-circle,
 i.fa-unlock-alt {
   position: absolute;
   top: 15px;
-  left: 92px;
+  left: 65px;
 }
 .wrapper input {
   text-indent: 30px;
@@ -180,9 +184,9 @@ i.fa-unlock-alt {
 }
 
 .box-card {
-  width: 500px;
-  height: 550px;
-  margin: 0 auto;
+  width: 450px;
+  height: 500px;
+  float: right;
 }
 input[type="text"],
 input[type="password"] {
@@ -203,6 +207,7 @@ input[type="password"] {
 }
 p {
   font-size: 14px;
+  color: gray;
 }
 .blue {
   color: #00aaee;
@@ -216,4 +221,5 @@ p {
 .light {
   color: #2ac09e;
 }
+
 </style>

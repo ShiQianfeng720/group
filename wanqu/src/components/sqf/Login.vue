@@ -11,7 +11,7 @@
       <div class="maininner">
         <el-card class="box-card">
           <div slot="header" class="clearfix">
-            <span>账户登录</span>
+            <span>用户登录</span>
           </div>
           <div class="text item">
             <el-form class="login-form">
@@ -131,13 +131,17 @@ export default {
   margin: 0 auto;
 }
 .el-main {
-  background-image: url("../../assets/bj.jpg");
+  background-image: url("http://127.0.0.1:3000/images/bj.jpg");
   color: #333;
   text-align: center;
   height: 560px;
 }
 /*登陆卡片*/
-
+.el-card__header{
+  /* background: #7CCB46; */
+  font-size: 20px;
+  font-weight: bold;
+}
 .wrapper { position: relative; }
 i.fa-user-circle, i.fa-unlock-alt{ position: absolute; top: 15px; left: 37px; }
 .wrapper input { text-indent: 30px;}

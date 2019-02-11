@@ -33,30 +33,55 @@
       <el-aside class="collapsed">
         <el-col :span="24">
           <el-menu
-            default-active="2"
-            class="el-menu-vertical-demo"
-            background-color="#d3dce6"
-            text-color="#48576a"
-            active-text-color="#20a0ff"
-            @select="handleSelect"
-          >
-            <el-menu-item index="1">
-              <i class="el-icon-location"></i>
-              <span slot="title">会员管理</span>
-            </el-menu-item>
-            <el-menu-item index="2">
-              <i class="el-icon-menu"></i>
-              <span slot="title">景点管理</span>
-            </el-menu-item>
-            <el-menu-item index="3">
-              <i class="el-icon-document"></i>
-              <span slot="title">订单管理</span>
-            </el-menu-item>
-            <el-menu-item index="4">
-              <i class="el-icon-setting"></i>
-              <span slot="title">留言管理</span>
-            </el-menu-item>
-          </el-menu>
+default-active="1"
+class="el-menu-vertical-demo"
+background-color="#283846"
+text-color="#fff"
+active-text-color="#ffd04b"
+:router="true"
+>
+<el-submenu index="1">
+<template slot="title">
+<i class="el-icon-location"></i>
+<span>会员管理</span>
+</template>
+<el-menu-item-group>
+<el-menu-item index="1-1">会员列表</el-menu-item>
+<el-menu-item index="1-2">新增会员</el-menu-item>
+<el-menu-item index="/grade">会员等级</el-menu-item>
+</el-menu-item-group>
+</el-submenu>
+
+<el-submenu index="2">
+<template slot="title">
+<i class="el-icon-location"></i>
+<span>商品管理</span>
+</template>
+<el-menu-item index="2-1">商品列表</el-menu-item>
+<el-menu-item index="2-2">套餐列表</el-menu-item>
+<el-menu-item index="2-3">库存管理</el-menu-item>
+</el-submenu>
+
+<el-submenu index="3">
+<template slot="title">
+<i class="el-icon-location"></i>
+<span>收银管理</span>
+</template>
+<el-menu-item index="3-1">选项1</el-menu-item>
+<el-menu-item index="3-2">选项2</el-menu-item>
+<el-menu-item index="3-3">选项3</el-menu-item>
+</el-submenu>
+
+<el-submenu index="4">
+<template slot="title">
+<i class="el-icon-location"></i>
+<span>报表管理</span>
+</template>
+<el-menu-item index="4-1">商品列表</el-menu-item>
+<el-menu-item index="4-2">套餐列表</el-menu-item>
+<el-menu-item index="4-3">员工提成</el-menu-item>
+</el-submenu>
+</el-menu>
         </el-col>
       </el-aside>
       <!--container main-->
@@ -69,10 +94,11 @@
 
 
 <script>
+
 export default {
   data() {
     return {
-      logoNmae: "WANQU",
+      logoNmae: "SPA",
       useName: "管理员",
       searchCriteria: "",
       breadcrumbItems: ["会员管理"]
@@ -91,22 +117,22 @@ export default {
         .catch(() => {});
     },
 
-    handleSelect(key, keyPath) {
-      switch (key) {
-        case "1":
-          this.$router.push("/HuiYuan");
-          break;
-        case "2":
-          this.$router.push("/JingDian");
-          break;
-        case "3":
-          this.$router.push("/DingDan");
-          break;
-        case "4":
-          this.$router.push("/LiuYan");
-          break;
-      }
-    }
+    // handleSelect(key, keyPath) {
+    //   switch (key) {
+    //     case "1":
+    //       this.$router.push("/HuiYuan");
+    //       break;
+    //     case "2":
+    //       this.$router.push("/JingDian");
+    //       break;
+    //     case "3":
+    //       this.$router.push("/DingDan");
+    //       break;
+    //     case "4":
+    //       this.$router.push("/LiuYan");
+    //       break;
+    //   }
+    // }
   }
 };
 </script>
@@ -119,6 +145,7 @@ export default {
   
 }
 /*head*/
+
 .el-header {
   background-color: #20a0ff;
   color: #333;

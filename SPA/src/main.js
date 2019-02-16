@@ -39,7 +39,23 @@ Vue.config.productionTip = false
     //3.拼接字符串
     return `${y}-${m}-${d} ${h}:${min}:${s}`
   })
+//3.1 设置过滤器 sex
+Vue.filter("sexfilter",function(val){
+if(val){
+  return "男"
+}else{
+  return "女"
+}
+})
+//3.2 设置过滤器 level
+Vue.filter("levelfilter",function(val){
+  if(val){
+    return "高级会员"
+  }else{
+    return "普通会员"
+  }
 
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -42,29 +42,29 @@ active-text-color="#ffd04b"
 >
 <el-submenu index="1">
 <template slot="title">
-<i class="el-icon-location"></i>
+<i class="fa fa-user-circle" aria-hidden="true"></i>
 <span>会员管理</span>
 </template>
 <el-menu-item-group>
-<el-menu-item index="1-1">会员列表</el-menu-item>
-<el-menu-item index="1-2">新增会员</el-menu-item>
+<el-menu-item index="/list">会员列表</el-menu-item>
+<el-menu-item index="/new">新增会员</el-menu-item>
 <el-menu-item index="/grade">会员等级</el-menu-item>
 </el-menu-item-group>
 </el-submenu>
 
 <el-submenu index="2">
 <template slot="title">
-<i class="el-icon-location"></i>
+<i class="fa fa-archive"></i>
 <span>商品管理</span>
 </template>
-<el-menu-item index="2-1">商品列表</el-menu-item>
-<el-menu-item index="2-2">套餐列表</el-menu-item>
-<el-menu-item index="2-3">库存管理</el-menu-item>
+<el-menu-item index="/productList">商品列表</el-menu-item>
+<el-menu-item index="/taoList">套餐列表</el-menu-item>
+<el-menu-item index="/manage">库存管理</el-menu-item>
 </el-submenu>
 
 <el-submenu index="3">
 <template slot="title">
-<i class="el-icon-location"></i>
+<i class="fa fa-calculator"></i>
 <span>收银管理</span>
 </template>
 <el-menu-item index="3-1">选项1</el-menu-item>
@@ -74,7 +74,7 @@ active-text-color="#ffd04b"
 
 <el-submenu index="4">
 <template slot="title">
-<i class="el-icon-location"></i>
+<i class="fa fa-bar-chart-o"></i>
 <span>报表管理</span>
 </template>
 <el-menu-item index="4-1">商品列表</el-menu-item>
@@ -86,6 +86,7 @@ active-text-color="#ffd04b"
       </el-aside>
       <!--container main-->
       <el-main class="ma">
+            <!-- <index-view></index-view> -->
             <router-view></router-view>
       </el-main>
     </el-container>
@@ -94,8 +95,11 @@ active-text-color="#ffd04b"
 
 
 <script>
-
+// import index from "./index"
 export default {
+  // components:{
+  //   "index-view":index
+  // },
   data() {
     return {
       logoNmae: "SPA",
@@ -117,29 +121,14 @@ export default {
         .catch(() => {});
     },
 
-    // handleSelect(key, keyPath) {
-    //   switch (key) {
-    //     case "1":
-    //       this.$router.push("/HuiYuan");
-    //       break;
-    //     case "2":
-    //       this.$router.push("/JingDian");
-    //       break;
-    //     case "3":
-    //       this.$router.push("/DingDan");
-    //       break;
-    //     case "4":
-    //       this.$router.push("/LiuYan");
-    //       break;
-    //   }
-    // }
+   
   }
 };
 </script>
 
 <style scope>
 .container {
-  /* width: 1500px; */
+  width: 100%;
   height: 800px;
   margin: 0 auto;
   
@@ -147,7 +136,7 @@ export default {
 /*head*/
 
 .el-header {
-  background-color: #20a0ff;
+  background-color: #21CA63;
   color: #333;
   text-align: center;
   line-height: 60px;

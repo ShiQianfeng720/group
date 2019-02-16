@@ -1,7 +1,7 @@
 <template >
 <div class="box">
   <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-position="left" label-width="0px" class="demo-ruleForm login-container">
-    <h3 class="title">玩去后台系统登录</h3>
+    <h3 class="title">SPA美容养生后台系统登录</h3>
     <el-form-item prop="account">
       <el-input type="text" v-model="ruleForm2.account" auto-complete="off" placeholder="账号"></el-input>
     </el-form-item>
@@ -61,7 +61,7 @@ export default {
   display:flex;
   justify-content: center;
   align-items: center;
-    background-image: url("http://127.0.0.1:3000/images/reg.jpg")
+  background-image: url("http://127.0.0.1:3000/images/reg.jpg")
 }
   .login-container {
     /*box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);*/
@@ -86,4 +86,7 @@ export default {
     .remember {
       margin: 0px 0px 35px 0px;
     }
+    .el-form{
+margin-top: -150px;
+} 
 </style>

@@ -9,9 +9,9 @@ CREATE TABLE member(
 	mname VARCHAR(16),				#会员名
 	gender BOOL,					#会员性别 1-->男 0-->女
 	phone CHAR(11),					#联系电话
-	level BOOL						#级别  1->高级员   0->普通会员 
+	level BOOL,						#级别  1->高级员   0->普通会员
 	money DECIMAL(10,2),			#余额
-	core  SMALLINT                  #积分
+	core  SMALLINT,                  #积分
 	count  SMALLINT                 #消费次数
 );
 INSERT INTO member VALUES
@@ -35,4 +35,25 @@ INSERT INTO member VALUES
 (10018,'jhk',0,'13257476986',0,'532','78','3'),
 (10019,'wty',1,'17757476986',0,'132','78','2'),
 (10020,'fgh',0,'13257476986',0,'153','78','1');
+
+-- 创建商品表
+CREATE TABLE `goods` (
+  `id` INT NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `pic` MEDIUMTEXT NULL COMMENT '图片',
+  `title` VARCHAR(200) NOT NULL COMMENT '商品名称',
+  `desc` VARCHAR(500) NULL COMMENT '商品的描述',
+  `price` DECIMAL(10) NOT NULL,
+  `number` INT NOT NULL COMMENT '库存',
+  PRIMARY KEY (`id`));
+
+insert into goods (`number`, pic,`desc`, price, title)
+ values(
+  2000, 'pic','描述',20,'商品AAAA'
+),
+(
+  2000, 'pic','描述',20,'商品BBBB'
+),
+(
+  2000, 'pic','描述',20,'商品CCCC'
+)
 

@@ -2,7 +2,7 @@
   <div>
     <!--面包屑导航-->
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>会员管理</el-breadcrumb-item>
       <el-breadcrumb-item>会员列表</el-breadcrumb-item>
     </el-breadcrumb>
@@ -17,38 +17,7 @@
       </el-button-group>
     </div>
     <!--表格-->
-    <!-- <table class="table">
-      <thead>
-        <tr>
-          <th>
-            <input type="checkbox">
-          </th>
-          <th>会员号</th>
-          <th>会员名</th>
-          <th>性别</th>
-          <th>手机</th>
-          <th>等级</th>
-          <th>余额</th>
-          <th>积分</th>
-          <th>消费次数</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item of mList" :key="item.mid">
-          <td>
-            <input type="checkbox">
-          </td>
-          <td>{{item.mid}}</td>
-          <td>{{item.mname}}</td>
-          <td>{{item.gender}}</td>
-          <td>{{item.phone}}</td>
-          <td>{{item.level}}</td>
-          <td>{{item.money}}</td>
-          <td>{{item.core}}</td>
-          <td>{{item.count}}</td>
-        </tr>
-      </tbody>
-    </table>-->
+   
     <!--e-table-->
     <el-table
       ref="multipleTable"
@@ -58,8 +27,8 @@
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column prop="mid" label="会员号" width="180"></el-table-column>
-      <el-table-column prop="mname" label="会员名" width="180"></el-table-column>
+      <el-table-column prop="mid" label="会员号" ></el-table-column>
+      <el-table-column prop="mname" label="会员名" ></el-table-column>
       <el-table-column prop="gender" label="性别"> 
         <template scope="scope">
                 <span>{{scope.row.gender | sexfilter}}</span>
@@ -89,7 +58,7 @@ export default {
       mList: [],
       input: "",
       pageIndex:0,//初始页
-      pageSize:7,//每页数据
+      pageSize:5,//每页数据
       pageCount:1 //总页数
     };
   },

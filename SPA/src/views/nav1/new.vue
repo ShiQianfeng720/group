@@ -7,7 +7,11 @@
       <el-breadcrumb-item>新增会员</el-breadcrumb-item>
     </el-breadcrumb>
     <!--会员信息-->
-    <p>基本信息</p>
+    <el-row>
+      <el-col :span="24"><div class="grid-content bg-purple-dark">基本信息</div></el-col>
+    </el-row>
+      <!--<span class="p">基本信息</span>-->
+
 
     <el-form
       :model="ruleForm"
@@ -16,9 +20,7 @@
       label-width="100px"
       class="demo-ruleForm"
     >
-      <el-form-item label="会员卡号" prop="id">
-        <el-input v-model="ruleForm.id" placeholder="请输入会员卡号" style="width:200px"></el-input>
-      </el-form-item>
+
       <el-form-item label="会员姓名" prop="name">
         <el-input v-model="ruleForm.name" placeholder="请输入会员名" style="width:200px"></el-input>
       </el-form-item>
@@ -52,7 +54,8 @@
         <el-button @click="resetForm('ruleForm')">重置</el-button>
       </el-form-item>
     </el-form>
-  </div>
+</div>
+
 </template>
 
 <script>
@@ -60,7 +63,7 @@ export default {
   data() {
     return {
       ruleForm: {
-        id: "",
+        // id: "",
         name: "",
         phone: "",
         gender: "",
@@ -70,10 +73,7 @@ export default {
         count:'0'
       },
       rules: {
-        id: [
-          { required: true, message: "请输入会员号", trigger: "blur" },
-          { min: 4, max: 5, message: "长度在 4 到 5 个字符", trigger: "blur" }
-        ],
+
         name: [{ required: true, message: "请输入会员名称", trigger: "blur" }],
         phone: [
           { required: true, message: "请输入会员手机号", trigger: "blur" },
@@ -92,7 +92,26 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          alert("submit!");
+          //向数据库插入数据
+          //请求参数
+          var name=this.ruleForm.name;
+          var phone=this.ruleForm.phone;
+          var gender=this.ruleForm.gender;
+          var level=this.ruleForm.level;
+          var money=this.ruleForm.money;
+          var score=this.ruleForm.score;
+          //请求地址
+          var url="http://127.0.0.1:3000/addnewuser?name="+name+"&phone="+phone+"&gender="+gender+
+            "&level="+level+"&money="+money+"&score="+score;
+          //发送异步请求
+          this.axios.get(url).then(result=>{
+            if (result.data.code > 0) {
+              alert(result.data.msg)
+            }else{
+              alert(result.data.msg)
+            }
+          })
+
         } else {
           console.log("error submit!!");
           return false;
@@ -106,18 +125,40 @@ export default {
 };
 </script>
 
-<style scoped>
-p {
-  background: #ecfcf1;
-  border: solid 1px #b3e4c6;
-  border-radius: 10px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #21bc5e;
-  padding-left: 10px;
-}
+<style>
+  .el-row {
+    margin-bottom: 15px;
+    margin-top:20px;
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #ecfcf1;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #21bc5e;
+    padding-left: 28px;
+  }
+
+
+/*.p {*/
+  /*display: block;*/
+  /*background: #ecfcf1;*/
+  /*border: solid 1px #b3e4c6;*/
+  /*border-radius: 10px;*/
+  /*height: 40px;*/
+  /*line-height: 40px;*/
+  /*font-size: 15px;*/
+  /*font-weight: bold;*/
+  /*color: #21bc5e;*/
+  /*padding-left: 10px;*/
+/*}*/
 /*会员信息*/
 
 .el-form {

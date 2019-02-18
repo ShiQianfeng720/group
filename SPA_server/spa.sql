@@ -37,23 +37,40 @@ INSERT INTO member VALUES
 (10020,'fgh',0,'13257476986',0,'153','78','1');
 
 -- 创建商品表
-CREATE TABLE `goods` (
-  `id` INT NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `pic` MEDIUMTEXT NULL COMMENT '图片',
-  `title` VARCHAR(200) NOT NULL COMMENT '商品名称',
-  `desc` VARCHAR(500) NULL COMMENT '商品的描述',
-  `price` DECIMAL(10) NOT NULL,
-  `number` INT NOT NULL COMMENT '库存',
-  PRIMARY KEY (`id`));
+CREATE TABLE goods (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  pic VARCHAR(100),
+  title VARCHAR(200),
+  classify VARCHAR(20),
+  des VARCHAR(500),
+  price DECIMAL(10,2),
+  number INT );
 
-insert into goods (`number`, pic,`desc`, price, title)
- values(
-  2000, 'pic','描述',20,'商品AAAA'
-),
-(
-  2000, 'pic','描述',20,'商品BBBB'
-),
-(
-  2000, 'pic','描述',20,'商品CCCC'
-)
+-- CREATE TABLE member(
+-- 	id INT PRIMARY KEY AUTO_INCREMENT,		#商品id（自增）
+-- 	pic VARCHAR(100),				#图片
+-- 	classify VARCHAR(20),					#商品分类
+-- 	phone CHAR(11),					#联系电话
+-- 	level BOOL,						#级别  1->高级员   0->普通会员
+-- 	money DECIMAL(10,2),			#余额
+-- 	core  SMALLINT,                  #积分
+-- 	count  SMALLINT                 #消费次数
+-- );
+
+INSERT INTO goods VALUES
+ (1,'images/goods/mei/mei1.jpg','化妆品 膏 霜 乳 液 护肤 美容产品','美容','对环境干燥、季节更变等自然因素造成的皮肤干燥，尤其是因皮肤老化造成的胶原蛋白、透明质酸逐渐流失，凝水力下降、粗糙、紧绷、干纹等肌肤问题，运用精准的科学力量，补充复配多肽及透明质酸、丝素肽等高效能成分，深层滋养，改善肌肤干燥、粗糙状态，持久保湿，祛除皱纹，让肌肤丰润紧实有弹性。',380,150),
+ (2,'images/goods/mei/mei2.jpg','眼部提拉精致淡化细纹3d补水保湿','美容','含99.99纯金箔成分，经过纳米技术处理，能被肌肤吸收，将天ran矿物质分子直接渗透肌肤底层、活化肌肤、并将老化因子和肌肤杂质带离，加强皮肤的更新能力，抵抗造成肌肤衰老现象的自由基，祛黄、延缓老化、延缓皮肤细胞的年龄。',120,320),
+
+ (3,'images/goods/mei/mei3.jpg','暨大浅导美塑创科多肽祛黄保湿活肤弹力紧致提升','美容','对环境干燥、季节更变等自然因素造成的皮肤干燥，尤其是因皮肤老化造成的胶原蛋白、透明质酸逐渐流失，凝水力下降、粗糙、紧绷、干纹等肌肤问题，运用精准的科学力量，补充复配多肽及透明质酸、丝素肽等高效能成分，深层滋养，改善肌肤干燥、粗糙状态，持久保湿，祛除皱纹，让肌肤丰润紧实有弹性。',145,100),
+
+ (4,'images/goods/mei/mei4.jpg','邦美施复合维生素EC霜冬季补水保湿润肤乳液','美容','本品蕴含维生素E等多种维生素以及人参等植物提取精华，本厂做医院的，所以不含市面上常规保湿霜的化学香精，真正的是纯天然，滋养保护肌肤，改善肌肤干燥、老化、色素沉积等现象，令肌肤紧致、光滑。全身都可涂抹哦，滋润型。',150,80),
+
+ (5,'images/goods/mei/mei5.jpg','春夏复活草保湿补水护肤套装张艺兴补水保湿乳液精','美容','补充复配多肽及透明质酸、丝素肽等高效能成分，深层滋养，改善肌肤干燥、粗糙状态，持久保湿，祛除皱纹，让肌肤丰润紧实有弹性。',230,120),
+
+ (6,'images/goods/mei/mei6.jpg','原生欧芙兰超微水化妆品护肤品套装盒','美容','对环境干燥、季节更变等自然因素造成的皮肤干燥，尤其是因皮肤老化造成的胶原蛋白、透明质酸逐渐流失，凝水力下降、粗糙、紧绷、干纹等肌肤问题',380,80),
+
+ (7,'images/goods/mei/mei7.jpg','爱奴雅专柜正品9系无添加冰膜','美容','渗透肌肤底层、活化肌肤、并将老化因子和肌肤杂质带离，加强皮肤的更新能力，抵抗造成肌肤衰老现象的自由基，祛黄、延缓老化、延缓皮肤细胞的年龄',60,130);
+
+
+
 

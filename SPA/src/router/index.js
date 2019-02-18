@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 //sqf
 import Home from '@/views/Home.vue'
-import Grade from '@/views/nav1/grade.vue'
+import Score from '@/views/nav1/score.vue'
 import List from '@/views/nav1/list.vue'
 import New from '@/views/nav1/new.vue'
 import Manage from '@/views/nav2/manage.vue'
@@ -34,7 +34,7 @@ routes:[
     path: '/nav1',
     component: Home,
     children: [
-        { path: '/grade', component: Grade},
+        { path: '/score', component: Score},
         { path: '/list', component: List},
         { path: '/new', component: New},
         

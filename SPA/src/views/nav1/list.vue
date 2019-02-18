@@ -119,26 +119,10 @@ export default {
   margin-top: 10px;
 }
 /*table*/
-.table {
-  border-collapse: collapse;
-  width: 100%;
-  background: #ffff;
-}
-.table th {
-  height: 35px;
-  font-size: 15px;
-  background: #ecfcf1;
-}
-.table td {
-  height: 50px;
-  font-size: 13px;
-}
-.table td,
-.table th {
-  width: 25px;
-  border: 1px solid #ccc;
-  text-align: center;
   /* border-top:none; */
+.el-table th{
+ background: #bbddc5;
+ color: rgb(82, 80, 80);
 }
 /*分页*/
 .block{

@@ -10,7 +10,7 @@
     <el-row>
       <el-col :span="24"><div class="grid-content bg-purple-dark">基本信息</div></el-col>
     </el-row>
-      <!--<span class="p">基本信息</span>-->
+      <!-- <span class="p">基本信息</span> -->
 
 
     <el-form
@@ -128,7 +128,7 @@ export default {
 <style>
   .el-row {
     margin-bottom: 15px;
-    margin-top:20px;
+    margin-top:5px;
   }
   .el-col {
     border-radius: 4px;
@@ -146,19 +146,6 @@ export default {
     padding-left: 28px;
   }
 
-
-/*.p {*/
-  /*display: block;*/
-  /*background: #ecfcf1;*/
-  /*border: solid 1px #b3e4c6;*/
-  /*border-radius: 10px;*/
-  /*height: 40px;*/
-  /*line-height: 40px;*/
-  /*font-size: 15px;*/
-  /*font-weight: bold;*/
-  /*color: #21bc5e;*/
-  /*padding-left: 10px;*/
-/*}*/
 /*会员信息*/
 
 .el-form {

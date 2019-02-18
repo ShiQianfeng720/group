@@ -22,28 +22,21 @@
     <!--e-table-->
     <el-table
       ref="multipleTable"
-      :data="mList"
+      :data="gList"
       tooltip-effect="dark"
       style="width: 100%"
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column prop="mid" label="会员号" ></el-table-column>
-      <el-table-column prop="mname" label="会员名" ></el-table-column>
-      <el-table-column prop="gender" label="性别">
-        <template scope="scope">
-          <span>{{scope.row.gender | sexfilter}}</span>
-        </template>
+      <el-table-column prop="id" label="ID"  ></el-table-column>
+      <el-table-column prop="pic" label="图片" >
+        <!-- <img class="pic_size" :src="'http://127.0.0.1:3000/'+gList.pic" alt=""> -->
       </el-table-column>
-      <el-table-column prop="phone" label="手机"></el-table-column>
-      <el-table-column prop="level" label="等级">
-        <template scope="scope">
-          <span>{{scope.row.level | levelfilter}}</span>
-        </template>
-      </el-table-column>
-      <el-table-column prop="money" label="余额"></el-table-column>
-      <el-table-column prop="core" label="积分"></el-table-column>
-      <el-table-column prop="count" label="消费次数"></el-table-column>
+      <el-table-column prop="title" label="标题"></el-table-column>
+      <el-table-column prop="classify" label="商品分类"></el-table-column>
+      <el-table-column prop="des" label="商品描述" class="p"></el-table-column>
+      <el-table-column prop="price" label="价格" ></el-table-column>
+      <el-table-column prop="number" label="库存"></el-table-column>
     </el-table>
     <!--分页-->
     <div class="block">
@@ -56,7 +49,7 @@
   export default {
     data() {
       return {
-        mList: [],
+        gList: [],
         input: "",
         pageIndex:0,//初始页
         pageSize:5,//每页数据
@@ -64,34 +57,36 @@
       };
     },
     created() {
-      this.memberTable();
+      this.goodsTable();
     },
     methods: {
       current_change(val){
         var pno=val;
         var ps=this.pageSize;
-        var url="http://127.0.0.1:3000/getList?pno="+pno+"&pageSize="+ps;
+        var url="http://127.0.0.1:3000/getProductList?pno="+pno+"&pageSize="+ps;
         this.axios.get(url).then(result=>{
           // console.log(result.data)
           var rows=result.data.data;
-          this.mList=rows;
+          this.gList=rows;
         })
       },
-      memberTable() {
+      goodsTable() {
         //加载下一页请求参数
         this.pageIndex++;
         var pno=this.pageIndex;
         var ps=this.pageSize;
         //请求地址
-        var url = "http://127.0.0.1:3000/getList?pno="+pno+"&pageSize="+ps;
+        var url = "http://127.0.0.1:3000/getProductList?pno="+pno+"&pageSize="+ps;
         //发送异步请求
         this.axios.get(url).then(result => {
           //返回数据保存到mList
           // this.mList = result.data;
           // this.mList = result.data.data;
-          var rows=this.mList.concat(result.data.data);
-          this.mList=rows;
+          var rows=this.gList.concat(result.data.data);
+          this.gList=rows;
+          console.log(rows);
           this.pageCount=result.data.pageCount;
+          
         });
       },
       handleSelectionChange(val) {
@@ -120,27 +115,28 @@
     margin-top: 10px;
   }
   /*table*/
-  .table {
-    border-collapse: collapse;
-    width: 100%;
-    background: #ffff;
-  }
-  .table th {
-    height: 35px;
-    font-size: 15px;
-    background: #ecfcf1;
-  }
-  .table td {
-    height: 50px;
-    font-size: 13px;
-  }
-  .table td,
-  .table th {
-    width: 25px;
-    border: 1px solid #ccc;
+  .el-table{
     text-align: center;
-    /* border-top:none; */
   }
+ 
+
+.el-table .cell{
+  text-align: center;
+  height:40px;
+  /* line-height: 40px; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+ .el-table th{
+ background: #bbddc5;
+ color: rgb(82, 80, 80);
+ font-size: 15px;
+ line-height: 40px;
+}
+
   /*分页*/
   .block{
     float: right;

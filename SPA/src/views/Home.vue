@@ -48,7 +48,7 @@ active-text-color="#ffd04b"
 <el-menu-item-group>
 <el-menu-item index="/list">会员列表</el-menu-item>
 <el-menu-item index="/new">新增会员</el-menu-item>
-<el-menu-item index="/grade">会员等级</el-menu-item>
+<el-menu-item index="/score">积分变动</el-menu-item>
 </el-menu-item-group>
 </el-submenu>
 

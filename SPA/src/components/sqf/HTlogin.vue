@@ -42,7 +42,32 @@ export default {
     },
     methods: {
         handleSubmit(){
+                    //1：获取用户输入的用户名和密码
+      var name=this.ruleForm2.account;
+      var pwd=this.ruleForm2.checkPass;
+      //2：验证
+      var reg=/^\w{5,12}$/i;
+      if(!reg.test(name)){
+        alert("用户名格式不正确");
+        return;
+      }
+      // var reg2=/^\d{6,12}$/i;
+      if(!reg.test(pwd)){
+        alert("密码格式不正确");
+        return;
+      }
+      //发送请求
+      var url="http://127.0.0.1:3000/HTlogin?name="+name+"&pwd="+pwd;
+      this.axios.get(url).then(result=>{
+        if(result.data.code>0){
+          // this.$router.push("/网站首页");
+          // alert("跳到登陆页面")
             this.$router.push("/Home");
+
+        }else{
+          alert(result.data.msg);
+        }
+      })
         }
     },
 }

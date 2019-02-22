@@ -77,8 +77,8 @@ active-text-color="#ffd04b"
 <i class="fa fa-bar-chart-o"></i>
 <span>报表管理</span>
 </template>
-<el-menu-item index="4-1">商品列表</el-menu-item>
-<el-menu-item index="4-2">套餐列表</el-menu-item>
+<el-menu-item index="/memberChart">会员报表</el-menu-item>
+<el-menu-item index="/sellChart">销售报表</el-menu-item>
 <el-menu-item index="4-3">员工提成</el-menu-item>
 </el-submenu>
 </el-menu>

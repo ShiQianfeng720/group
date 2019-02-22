@@ -100,7 +100,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .el-breadcrumb {
   margin-bottom: 30px;
 }

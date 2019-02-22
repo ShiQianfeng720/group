@@ -36,6 +36,15 @@ INSERT INTO member VALUES
 (10019,'wty',1,'17757476986',0,'132','78','2'),
 (10020,'fgh',0,'13257476986',0,'153','78','1');
 
+--创建用户表
+/**用户表**/
+CREATE TABLE user(
+	uid INT PRIMARY KEY AUTO_INCREMENT,		#用户id（自增）
+	uname VARCHAR(16),				#用户名
+	password VARCHAR(32)				#用户密码
+);
+INSERT INTO user VALUES
+(1,'admin',md5('123456'));
 -- 创建商品表
 CREATE TABLE goods (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -45,17 +54,6 @@ CREATE TABLE goods (
   des VARCHAR(500),
   price DECIMAL(10,2),
   number INT );
-
--- CREATE TABLE member(
--- 	id INT PRIMARY KEY AUTO_INCREMENT,		#商品id（自增）
--- 	pic VARCHAR(100),				#图片
--- 	classify VARCHAR(20),					#商品分类
--- 	phone CHAR(11),					#联系电话
--- 	level BOOL,						#级别  1->高级员   0->普通会员
--- 	money DECIMAL(10,2),			#余额
--- 	core  SMALLINT,                  #积分
--- 	count  SMALLINT                 #消费次数
--- );
 
 INSERT INTO goods VALUES
  (1,'images/goods/mei/mei1.jpg','化妆品 膏 霜 乳 液 护肤 美容产品','美容','对环境干燥、季节更变等自然因素造成的皮肤干燥，尤其是因皮肤老化造成的胶原蛋白、透明质酸逐渐流失，凝水力下降、粗糙、紧绷、干纹等肌肤问题，运用精准的科学力量，补充复配多肽及透明质酸、丝素肽等高效能成分，深层滋养，改善肌肤干燥、粗糙状态，持久保湿，祛除皱纹，让肌肤丰润紧实有弹性。',380,150),

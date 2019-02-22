@@ -28,6 +28,24 @@ app.use(session({
 }))
 
 
+//功能：后台登陆验证
+app.get("/HTlogin",(req,res)=>{
+    //1:获取请求参数
+    var uname=req.query.name;
+    var password=req.query.pwd;
+    //sql查询
+    var sql="SELECT count(uid) as c,uid from user WHERE uname=? AND password=md5(?)";
+    pool.query(sql,[uname,password],(err,result)=>{
+      if(err)throw err;
+      if(result[0].c>0){
+        //如果匹配成功就将id保存到session 中
+        req.session.uid=result[0].uid;
+        res.send({code:1,msg:"登陆成功"})
+      }else{
+        res.send({code:-1,msg:"用户名或密码有误！"})
+      }
+    })
+  })
 
 //会员管理
 
@@ -160,3 +178,4 @@ app.get("/getProductList", (req, res) => {
         }
     });
 });
+

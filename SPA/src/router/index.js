@@ -9,6 +9,8 @@ import New from '@/views/nav1/new.vue'
 import Manage from '@/views/nav2/manage.vue'
 import ProductList from '@/views/nav2/productList.vue'
 import TaoList from '@/views/nav2/taoList.vue'
+import MemberChart from '@/views/nav4/memberChart.vue'
+import SellChart from '@/views/nav4/sellChart.vue'
 
 import Login from '@/components/sqf/Login.vue'
 import Register from '@/components/sqf/Register.vue'
@@ -47,6 +49,15 @@ routes:[
         { path:'/manage',component:Manage},
         { path:'/productList',component:ProductList},
         { path:'/taoList',component:TaoList},
+    ]
+},
+{
+    path:'/nav4',
+    component:Home,
+    children:[
+        { path:'/memberChart',component:MemberChart},
+        { path:'/sellChart',component:SellChart},
+        
     ]
 }
 

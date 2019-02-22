@@ -7,7 +7,7 @@
       <el-breadcrumb-item>新增会员</el-breadcrumb-item>
     </el-breadcrumb>
     <!--会员信息-->
-    <el-row>
+    <el-row class="news">
       <el-col :span="24"><div class="grid-content bg-purple-dark">基本信息</div></el-col>
     </el-row>
       <!-- <span class="p">基本信息</span> -->
@@ -125,11 +125,15 @@ export default {
 };
 </script>
 
-<style>
-  .el-row {
+<style scoped>
+.news{
+    margin-bottom: 15px;
+    margin-top:25px;
+}
+  /* .el-row {
     margin-bottom: 15px;
     margin-top:5px;
-  }
+  } */
   .el-col {
     border-radius: 4px;
   }
